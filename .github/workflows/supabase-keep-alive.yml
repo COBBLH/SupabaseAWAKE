@@ -1,0 +1,17 @@
+name: Supabase Keep Alive
+
+on:
+  schedule:
+    # Tatakbo tuwing ika-3 araw
+    - cron: '0 0 */3 * *'
+  workflow_dispatch:
+
+jobs:
+  ping-supabase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Keep-Alive Request to Supabase
+        run: |
+          curl -X GET "https://bbbaawqqgjzrbadmvpwu.supabase.co/rest/v1/" \
+          -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJiYmFhd3FxZ2p6cmJhZG12cHd1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxOTkwMzMsImV4cCI6MjA5NDc3NTAzM30.jlqT2BfghVM7h20Oqb8MAu-eiIAQ2kthB_jlMXe-dYQ" \
+          -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJiYmFhd3FxZ2p6cmJhZG12cHd1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxOTkwMzMsImV4cCI6MjA5NDc3NTAzM30.jlqT2BfghVM7h20Oqb8MAu-eiIAQ2kthB_jlMXe-dYQ"
